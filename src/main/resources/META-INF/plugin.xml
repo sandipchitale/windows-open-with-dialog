@@ -14,8 +14,25 @@
          Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
     <description><![CDATA[
-    This adds windows open with dialog to the Select In popup menu (MS Windows only).
+    This adds Windows Open with Dialog option to the Select In popup menu (MS Windows only).
   ]]></description>
+
+    <change-notes><![CDATA[
+<h2>New Features</h2>
+<ul>
+    <li>Open With... action in Open In context menu</li>
+</ul>
+
+<h2>Features</h2>
+<ul>
+    <li>Open With... option in Select In popup menu.</li>
+</ul>
+
+<h2>Known Issues</h2>
+<ul>
+    <li>None so far.</li>
+</ul>
+]]></change-notes>
 
     <!-- Product and plugin compatibility requirements.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
@@ -27,6 +44,15 @@
         <selectInTarget
                 implementation="sandipchitale.windowsopenwithdialog.SelectInWindowsOpenWithDialog"
                 id="sandipchitale.windowsopenwithdialog.SelectInWindowsOpenWithDialog"
-                os="windows"/>
+                os="windows"
+        />
     </extensions>
+    <actions>
+        <action id="sandipchitale.windowsopenwithdialog.SelectInWindowsOpenWithDialogAction"
+                class="sandipchitale.windowsopenwithdialog.SelectInWindowsOpenWithDialogAction"
+                text="Open With..."
+                description="Show open with dialog (MS windows only)">
+            <add-to-group group-id="RevealGroup" anchor="last"/>
+        </action>
+    </actions>
 </idea-plugin>
